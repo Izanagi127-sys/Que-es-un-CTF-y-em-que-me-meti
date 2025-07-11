@@ -37,6 +37,25 @@ Las flags suelen tener el formato `flag{algo_aqui}` y cada categoría representa
 - Resolver problemas de seguridad en diferentes niveles
 - Trabajar en equipo y desarrollar habilidades de análisis
 
+# 📖 Glosario rápido de términos CTF
+
+Una lista de términos comunes que encontrarás en competencias Capture The Flag (CTF), explicados de forma simple para principiantes.
+
+| Término        | Definición breve                                                                   |
+|----------------|-------------------------------------------------------------------------------------|
+| **Flag**       | Cadena secreta que debes encontrar (formato típico: `flag{...}`)                   |
+| **Exploit**    | Código o técnica usada para aprovechar una vulnerabilidad                          |
+| **Payload**    | Información o código que se envía para ejecutar una acción en el objetivo          |
+| **Shell**      | Acceso a una consola o terminal remota                                             |
+| **Bruteforce** | Ataque de fuerza bruta para probar muchas combinaciones hasta acertar             |
+| **Vulnerabilidad** | Falla o error de seguridad que puede ser aprovechado                         |
+| **Diccionario**| Lista de palabras usada para romper contraseñas                                   |
+| **Wordlist**   | Sinónimo de diccionario (muy usado en cracking)                                   |
+| **SUID**       | Permiso especial en Linux que permite ejecutar un archivo como si fueras root      |
+| **Reverse Shell** | Una shell que conecta de vuelta al atacante desde la máquina víctima          |
+
+> ✨ Este glosario se irá actualizando con más términos a medida que avances en el mundo CTF.
+
 
 # Categorías Comunes en CTF
 
@@ -643,7 +662,35 @@ A veces la flag está en un "register" o como respuesta a una petición.
 
 🎯 Si ves tráfico con Modbus o un panel con datos de temperatura/presión… estás en un reto SCADA 😎
 
+❓ Preguntas frecuentes (FAQ)
+¿Necesito saber programar?
+No es obligatorio, pero ayuda mucho. Con conocimientos básicos de Python, Bash o C avanzarás más rápido.
+¿Cuánto tiempo tarda en resolverse un reto?
+Depende del nivel: desde 10 minutos hasta varias horas. ¡No te frustres si te atoras!
+¿Qué hago si me quedo atascado?
+Busca pistas, repasa el reto desde otro ángulo, pregunta en comunidades, o consulta writeups (soluciones escritas).
 
+📝 Ejemplo: Reto CTF paso a paso
+Reto: Te dan un archivo hash.txt con un hash MD5 y te piden encontrar la contraseña.
 
+Identifica el tipo de hash:
+Ejemplo: 5f4dcc3b5aa765d61d8327deb882cf99
+Busca el hash en Google:
+A veces está público y encuentras la solución al instante.
+Crackea con John the Ripper:
+bash
+john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+john --show hash.txt
+¡Encuentra la flag!
+Si el hash corresponde a password, la flag puede ser flag{password} o similar.
 
+❓ Preguntas frecuentes (FAQ)
+¿Necesito saber programar?
+No es obligatorio, pero ayuda mucho. Con conocimientos básicos de Python, Bash o C avanzarás más rápido.
+¿Cuánto tiempo tarda en resolverse un reto?
+Depende del nivel: desde 10 minutos hasta varias horas. ¡No te frustres si te atoras!
+¿Qué hago si me quedo atascado?
+Busca pistas, repasa el reto desde otro ángulo, pregunta en comunidades, o consulta writeups (soluciones escritas).
+¿Dónde pido ayuda?
+Puedes unirte a Discords, foros, grupos de Telegram o buscar canales de CTF en español.
 
