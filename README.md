@@ -57,10 +57,10 @@ Las flags suelen tener el formato `flag{algo_aqui}` y cada categoría representa
 ##🔧 Comandos y conceptos claves para Kali Linux
 #📁 Navegación básica
 
--ls          # Lista archivos
--cd          # Cambia de directorio
--pwd         # Muestra el directorio actual
--cp, mv, rm  # Copiar, mover, eliminar archivos
+- ls           |# Lista archivos
+- cd           |# Cambia de directorio
+- pwd          |# Muestra el directorio actual
+- cp, mv, rm   |# Copiar, mover, eliminar archivos
 
 🧰 Herramientas típicas en CTF
 📡 Red
