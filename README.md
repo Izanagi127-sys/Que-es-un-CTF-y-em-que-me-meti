@@ -7,14 +7,26 @@ Este repositorio busca introducir a estudiantes y entusiastas al mundo de los CT
 
 ## 📚 Contenido
 
-1. ¿Qué es un CTF?
-2. Tipos de CTF
-3. Categorías comunes
-4. Herramientas útiles
-5. Primeros pasos
-6. Laboratorios recomendados
-7. Recursos externos
-8. Ejemplos de desafíos
+## 📚 Contenido
+
+1. [¿Qué es un CTF?](#qué-es-un-ctf-y-en-qué-me-metí)
+2. [Recomendado para](#-recomendado-para)
+3. [Objetivos](#-objetivos)
+4. [Navegación básica en Linux (Kali Linux)](#-navegación-básica-en-linux-kali-linux)
+5. [Glosario de términos CTF](#-glosario-rápido-de-términos-ctf)
+6. [Categorías comunes en CTF](#categorías-comunes-en-ctf)
+7. [Conceptos básicos de redes](#-conceptos-básicos-de-redes)
+8. [Herramientas de red: Nmap](#-introducción-a-nmap)
+9. [Herramientas Web: curl y gobuster](#-herramientas-web-curl-y-gobuster)
+10. [Cracking de hashes y cifrados](#-cracking-de-hashes-qué-es-un-hash-qué-es-un-cifrado-y-cómo-romperlos)
+11. [Análisis forense y esteganografía](#-análisis-forense-y-esteganografía-en-ctfs)
+12. [Pwn para principiantes](#-pwn-para-principiantes--nivel-1)
+13. [Escalamiento de privilegios (PrivEsc)](#-escalamiento-de-privilegios-privesc--nivel-1)
+14. [OSINT en CTFs](#-osint-en-ctfs--inteligencia-de-fuentes-abiertas)
+15. [SCADA en CTFs](#-scada-en-ctfs--sistemas-industriales)
+16. [Preguntas frecuentes (FAQ)](#-preguntas-frecuentes-faq)
+17. [Ejemplo: Reto CTF paso a paso](#-ejemplo-reto-ctf-paso-a-paso)
+
 
 ---
 
