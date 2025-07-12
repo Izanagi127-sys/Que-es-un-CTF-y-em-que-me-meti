@@ -37,6 +37,94 @@ Las flags suelen tener el formato `flag{algo_aqui}` y cada categoría representa
 - Resolver problemas de seguridad en diferentes niveles
 - Trabajar en equipo y desarrollar habilidades de análisis
 
+# 📁 Navegación básica en Linux (Kali Linux)
+
+En CTFs y hacking ético, saber moverse por la terminal de Linux (especialmente en Kali) es fundamental. Aquí tienes los comandos esenciales para empezar.
+
+---
+
+## 📂 Comandos de navegación y archivos
+
+| Comando               | ¿Qué hace?                                        | Ejemplo                         |
+|-----------------------|---------------------------------------------------|---------------------------------|
+| `pwd`                 | Muestra la ruta del directorio actual             | `/home/kali`                    |
+| `ls`                  | Lista archivos y carpetas                         | `ls -la` (con detalles ocultos) |
+| `cd <ruta>`           | Cambia de directorio                              | `cd /var/www/html`              |
+| `cd ..`               | Sube un nivel                                     |                                 |
+| `clear`               | Limpia la pantalla                                |                                 |
+| `file <archivo>`      | Muestra el tipo de archivo                        | `file reto.png`                 |
+| `cat <archivo>`       | Muestra contenido de archivos de texto            | `cat nota.txt`                  |
+| `less` / `more`       | Muestra contenido de forma paginada               | `less log.txt`                  |
+| `cp <a> <b>`          | Copia archivo o carpeta                           | `cp flag.txt /tmp/`             |
+| `mv <a> <b>`          | Mueve (o renombra)                                | `mv flag.txt secreta.txt`       |
+| `rm <archivo>`        | Borra archivos                                    | `rm secreto.txt`                |
+| `mkdir <carpeta>`     | Crea una carpeta nueva                            | `mkdir prueba`                  |
+| `touch <archivo>`     | Crea un archivo vacío                             | `touch nuevo.txt`               |
+| `find / -name flag*`  | Busca archivos por nombre                         | Muy útil en CTFs                |
+
+---
+
+## 🧪 Permisos y ejecución
+
+| Comando                  | Descripción                                       | Ejemplo                         |
+|--------------------------|---------------------------------------------------|---------------------------------|
+| `chmod +x archivo`       | Da permisos de ejecución                         | `chmod +x exploit.sh`           |
+| `./archivo`              | Ejecuta archivo en el directorio actual          | `./reto`                        |
+| `ls -l`                  | Muestra permisos de archivos                     |                                 |
+| `sudo comando`           | Ejecuta como superusuario                        | `sudo nmap -sS 10.10.10.10`     |
+| `sudo -l`                | Ver qué comandos puedes correr como root         | MUY usado en escalamiento       |
+
+---
+
+## 🧠 Comandos útiles para CTF
+
+| Comando                     | ¿Para qué sirve?                                 |
+|-----------------------------|--------------------------------------------------|
+| `whoami`                    | Muestra tu usuario actual                        |
+| `hostname`                  | Muestra el nombre del sistema                    |
+| `uname -a`                  | Información del sistema operativo                |
+| `history`                   | Muestra el historial de comandos                 |
+| `grep "flag"` archivo       | Busca texto dentro de un archivo                 |
+| `strings archivo`           | Extrae texto legible de archivos binarios        |
+| `hexdump -C archivo`        | Muestra contenido hexadecimal del archivo        |
+| `tar -xvf archivo.tar`      | Extrae archivos `.tar`                           |
+| `unzip archivo.zip`         | Descomprime `.zip`                              |
+| `nc -nlvp 4444`             | Escucha conexiones con Netcat (muy usado en shells) |
+
+---
+
+## 🧰 Rutas típicas en Kali / Linux
+
+| Ruta                       | ¿Qué contiene?                                 |
+|----------------------------|-----------------------------------------------|
+| `/home/kali`               | Carpeta del usuario principal (tu espacio)    |
+| `/etc`                     | Configuraciones del sistema                   |
+| `/var/www/html`            | Raíz de Apache (servidor web)                 |
+| `/tmp`                     | Carpeta temporal (puede tener flags escondidas) |
+| `/bin`, `/usr/bin`         | Programas y comandos del sistema              |
+| `/root`                    | Home del usuario root (solo con privilegios)  |
+
+---
+
+## 💡 Tips para terminal
+
+- Usa `TAB` para autocompletar rutas y comandos
+- Usa flechas ↑↓ para moverte por comandos anteriores
+- Combina `grep`, `strings`, `find`, y `file` para investigar archivos
+- Siempre revisa permisos (`ls -l`) si no puedes ejecutar algo
+
+---
+
+
+
+
+
+
+
+
+
+
+
 # 📖 Glosario rápido de términos CTF
 
 Una lista de términos comunes que encontrarás en competencias Capture The Flag (CTF), explicados de forma simple para principiantes.
@@ -70,16 +158,101 @@ Una lista de términos comunes que encontrarás en competencias Capture The Flag
 | Misc          | Reto libre o mezcla de habilidades |
 | SCADA / OT    | Sistemas industriales, frecuentemente en competencias avanzadas |
 
+# 🌐 Conceptos básicos de redes
 
+Este apartado introduce los fundamentos de redes que todo participante de CTF debería conocer. Entender cómo funciona la comunicación entre dispositivos te ayudará a analizar tráfico, explotar servicios o interpretar retos técnicos.
 
+---
 
-##🔧 Comandos y conceptos claves para Kali Linux
-#📁 Navegación básica
+## 📦 Modelo OSI y Capas de Red
 
-- ls           |# Lista archivos
-- cd           |# Cambia de directorio
-- pwd          |# Muestra el directorio actual
-- cp, mv, rm   |# Copiar, mover, eliminar archivos
+El modelo **OSI** divide la comunicación en **7 capas**, pero en CTF se suelen usar las más importantes:
+
+| Capa | Nombre             | Función principal                            | Ejemplo            |
+|------|--------------------|-----------------------------------------------|--------------------|
+| 7    | Aplicación         | Interfaces con el usuario final              | HTTP, FTP, DNS     |
+| 4    | Transporte         | Controla el envío de datos entre dispositivos | TCP, UDP           |
+| 3    | Red                | Encaminamiento de paquetes                   | IP, ICMP           |
+| 2    | Enlace de datos    | Comunicación entre dispositivos en la red     | MAC, ARP           |
+
+> 🧠 **TCP/IP** es una versión práctica del modelo que agrupa capas similares.
+
+---
+
+## 🔁 Protocolos clave
+
+| Protocolo | Función                          | Importancia en CTFs                             |
+|-----------|----------------------------------|-------------------------------------------------|
+| **TCP**   | Conexión confiable               | Usado por HTTP, SSH, FTP                        |
+| **UDP**   | Rápido, sin conexión             | Usado en DNS, SNMP                              |
+| **HTTP**  | Comunicación web                 | Análisis de sitios y tráfico                    |
+| **DNS**   | Traducción de nombres a IP       | Usado en OSINT, filtrado, tunneling             |
+| **ARP**   | Asociación de IP con MAC         | Usado en ataques locales                        |
+| **ICMP**  | Diagnóstico de red (ping)        | Útil para detectar hosts activos                |
+
+---
+
+## 🔍 Comandos básicos
+
+| Comando              | Descripción                                   |
+|----------------------|-----------------------------------------------|
+| `ip a` / `ifconfig`  | Ver interfaces de red y direcciones IP        |
+| `ping`               | Verificar si un host responde                 |
+| `traceroute`         | Ruta de red hacia un host                     |
+| `netstat -tuln`      | Puertos abiertos y servicios escuchando       |
+| `dig`, `nslookup`    | Consultas DNS                                 |
+| `tcpdump`            | Captura de tráfico desde terminal             |
+
+---
+
+## 🧪 Análisis de tráfico `.pcap`
+
+- Usa **Wireshark** para examinar archivos `.pcap`
+- Filtros útiles:  
+  - `http.request`  
+  - `tcp.port == 80`  
+  - `frame contains "flag"`  
+
+> 🧠 Aprende a leer: IP origen/destino, puerto, protocolo, contenido.
+
+---
+
+## 🛡️ Puertos y servicios comunes
+
+| Puerto | Servicio  | Usos en CTF                              |
+|--------|-----------|-------------------------------------------|
+| 21     | FTP       | Fugas de archivos o credenciales          |
+| 22     | SSH       | Shell remota                              |
+| 23     | Telnet    | Comunicación remota insegura              |
+| 53     | DNS       | Tunelización, recolección de datos        |
+| 80/443 | HTTP/HTTPS| Sitios web vulnerables                    |
+| 445    | SMB       | Acceso a archivos                         |
+| 3306   | MySQL     | Bases de datos vulnerables                |
+
+---
+
+## 🌐 Tipos de direcciones IP
+
+| Tipo de IP      | Rango                             | Uso                        |
+|-----------------|------------------------------------|----------------------------|
+| Privada         | `192.168.x.x`, `10.x.x.x`          | Redes locales              |
+| Pública         | Asignada por el ISP                | Visible desde Internet     |
+| Loopback        | `127.0.0.1`                        | Pruebas locales            |
+| Broadcast       | Última IP de la red (`x.x.x.255`)  | Envío a todos los nodos    |
+
+---
+
+## 💡 ¿Qué mirar en un reto de red?
+
+- ¿Qué puertos están abiertos? (`nmap`)
+- ¿Qué protocolos se usan?
+- ¿Se transmite información sensible sin cifrar?
+- ¿Hay tráfico DNS o ICMP inusual?
+- ¿Se puede identificar una flag dentro de `.pcap`?
+
+---
+
+> 🧠 Estos conceptos te ayudarán especialmente en desafíos de tipo **Web, Forensics, SCADA** y **Reversing**.
 
 🧰 Herramientas típicas en CTF
 📡 Red
