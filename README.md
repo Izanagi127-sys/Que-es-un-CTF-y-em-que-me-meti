@@ -7,8 +7,6 @@ Este repositorio busca introducir a estudiantes y entusiastas al mundo de los CT
 
 ## 📚 Contenido
 
-## 📚 Contenido
-
 1. [¿Qué es un CTF?](#qué-es-un-ctf-y-en-qué-me-metí)
 2. [Recomendado para](#-recomendado-para)
 3. [Objetivos](#-objetivos)
